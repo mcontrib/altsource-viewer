@@ -152,18 +152,18 @@ main((json) => {
                 .map((screenshot, i) => {
                     let imageURL;
 
-                    if (typeof screenshot === 'string' && isValidHTTPURL(screenshot)) {
+                    if (typeof screenshot === "string" && isValidHTTPURL(screenshot)) {
                         imageURL = screenshot;
-                    } else if (screenshot && typeof screenshot === 'object' && screenshot.imageURL) {
+                    } else if (screenshot && typeof screenshot === "object" && screenshot.imageURL) {
                         imageURL = screenshot.imageURL;
                     }
 
-                    if (!imageURL) return ''; // Skip invalid entries
+                    if (!imageURL) return ""; // Skip invalid entries
 
                     const altText = `${app.name} screenshot ${i + 1}`;
                     return `<img src="${imageURL}" alt="${altText}" class="screenshot">`;
                 })
-                .join('');
+                .join("");
 
             if (html) {
                 preview.querySelector("#screenshots").insertAdjacentHTML("beforeend", html);
